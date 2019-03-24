@@ -69,9 +69,9 @@ $fCol1: rgb(73, 73, 73);
     transition: 0.5s;
     p {
       font-size: 1.5rem;
-      margin-right: 5%;
-      opacity: 0;
-      transform: translateY(50%);
+      margin-right: 10%;
+      opacity: 1;
+      //transform: translateY(50%);
       transition: 0.5s;
       color: rgb(129, 127, 127);
       font-weight: bold;
@@ -90,95 +90,6 @@ $fCol1: rgb(73, 73, 73);
 }
 .arrowTextToggle {
   display: none;
-}
-
-.menu {
-  z-index: 100;
-  width: 100%;
-  height: 100%;
-  //background: rgb(77, 226, 226);
-  display: grid;
-  grid-template-columns: 90% 10%;
-  grid-template-rows: 100%;
-  transform: translateX(-90%);
-  transition: 0.6s;
-  //border: 1px solid rgb(247, 3, 3);
-}
-
-.short-menu {
-  background: white;
-  // border: 1px solid rgb(247, 3, 3);
-  padding: 20% 0 20% 0;
-  font-size: 1.5rem;
-  color: $fCol1;
-  overflow: hidden;
-  width: 100%;
-  //height: 100%;
-  @include shortMenu();
-  #bars {
-    cursor: pointer;
-  }
-  .social {
-    // border: 1px solid rgb(212, 12, 162);
-    i {
-      color: rgb(104, 102, 102);
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-    }
-    @include social();
-  }
-  transition: 1s;
-}
-
-.big-menu {
-  width: 100%;
-  background: rgb(255, 255, 255);
-  transition: 1s;
-  z-index: 10;
-  overflow: hidden;
-  div {
-    //border: 1px solid red;
-    //padding: 5%;
-    margin-right: 25%;
-  }
-  @include bigMenu();
-  #logo {
-    font-size: 2rem;
-  }
-  nav > ul {
-    margin: 50% 0 50% 0;
-    list-style: none;
-    font-size: 2.2rem;
-    li {
-      margin-top: 10%;
-    }
-    a {
-      color: rgb(83, 83, 83);
-    }
-    a:hover {
-      color: rgb(190, 64, 190);
-    }
-  }
-  .social1 {
-    width: 100%;
-    font-size: 1.2rem;
-    i {
-      margin-right: 0.6rem;
-    }
-  }
-}
-
-#close {
-  @include bothCenter();
-  opacity: 0;
-  z-index: 20;
-  position: absolute;
-  top: 50%;
-  right: -20%;
-  cursor: pointer;
-  i {
-    margin-right: 0.5rem;
-  }
 }
 
 .secTwo {
@@ -250,6 +161,9 @@ $fCol1: rgb(73, 73, 73);
     button:hover {
       background: $size-btn-hover-color;
       color: $size-btn-hover-font-color;
+    }
+    button:focus-within {
+      background: rgb(148, 148, 148);
     }
   }
 }

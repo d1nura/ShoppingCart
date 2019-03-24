@@ -22,45 +22,10 @@
               <p>BUY</p>
               <i class="fas fa-arrow-circle-up"></i>
             </div>
-            <img id="coverPic" src="shoes/4.png" />
+            <img id="coverPic" src="/shoes/4.png" />
           </div>
-          <div class="menu">
-            <div class="big-menu">
-              <div id="close"><i class="fas fa-times"></i>Close</div>
-              <div>
-                <a id="logo" href="#"><i class="fas fa-shoe-prints"></i></a>
-                <nav>
-                  <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Sneakers</a></li>
-                    <li><a href="#">Accessories</a></li>
-                    <li><a href="#">Stores</a></li>
-                    <li><a href="contacts/contacts.html">Contacts</a></li>
-                  </ul>
-                </nav>
-                <div class="social1">
-                  <a href="#"><i class="fab fa-facebook"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fab fa-google"></i></a>
-                  <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="short-menu">
-              <a id="logo" href="#"><i class="fas fa-shoe-prints"></i></a>
-              <div id="bars">
-                <i onclick="menuFn()" class="fas fa-bars"></i>
-              </div>
-              <div class="social">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-google"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-              </div>
-            </div>
-          </div>
+          <menu-comp></menu-comp>
+          <link rel="import" href="/menu-comp/menu-comp.html" />
         </div>
         <div class="secTwo">
           <div class="mainContent">
@@ -93,7 +58,7 @@
               </div>
               <p>PRICE</p>
               <div class="border" id="priceCenter">
-                <p></p>
+                <p id="priceTag">$</p>
               </div>
               <button id="addToBag">ADD TO BAG</button>
             </div>

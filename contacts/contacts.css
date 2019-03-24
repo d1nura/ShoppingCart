@@ -13,4 +13,10 @@ menu-comp {
   width: 5%;
   height: 100%;
 }
+
+.menu-wrapper {
+  width: 50%;
+  height: 100%;
+  background: white;
+}
 /*# sourceMappingURL=contacts.css.map */
