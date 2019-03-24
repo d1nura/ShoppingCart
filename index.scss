@@ -1,0 +1,478 @@
+@import "partials";
+$border-radius: 2rem;
+$fCol1: rgb(73, 73, 73);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  a {
+    text-decoration: none;
+    color: $fCol1;
+  }
+  button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+}
+
+.container {
+  @include bacgroundColors();
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: wheat;
+  @include bothCenter();
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  //border: 1px solid red;
+  //border-radius: $border-radius;
+  overflow: hidden;
+  @include wrapper();
+}
+.secOne {
+  position: relative;
+  background: rgb(255, 255, 255);
+}
+
+.mainPic {
+  @include bothCenter();
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transform: translateX(10%);
+  @include image();
+  #arrow {
+    //border: 1px solid red;
+    //display: flex;
+    @include bothCenter();
+    cursor: pointer;
+    position: absolute;
+    z-index: 150;
+    right: 15%;
+    top: 5%;
+    font-size: 2.5rem;
+    color: rgb(51, 255, 0);
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    p {
+      font-size: 1.5rem;
+      margin-right: 5%;
+      opacity: 0;
+      transform: translateY(50%);
+      transition: 0.5s;
+      color: rgb(129, 127, 127);
+      font-weight: bold;
+    }
+    i {
+      transition: 0.2s;
+    }
+    transition: 0.5s;
+  }
+
+  transition: 1s;
+}
+.arrowRotateToggle {
+  // font-size: 4rem;
+  transform: rotate(180deg);
+}
+.arrowTextToggle {
+  display: none;
+}
+
+.menu {
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  //background: rgb(77, 226, 226);
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 100%;
+  transform: translateX(-90%);
+  transition: 0.6s;
+  //border: 1px solid rgb(247, 3, 3);
+}
+
+.short-menu {
+  background: white;
+  // border: 1px solid rgb(247, 3, 3);
+  padding: 20% 0 20% 0;
+  font-size: 1.5rem;
+  color: $fCol1;
+  overflow: hidden;
+  width: 100%;
+  //height: 100%;
+  @include shortMenu();
+  #bars {
+    cursor: pointer;
+  }
+  .social {
+    // border: 1px solid rgb(212, 12, 162);
+    i {
+      color: rgb(104, 102, 102);
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+    }
+    @include social();
+  }
+  transition: 1s;
+}
+
+.big-menu {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  transition: 1s;
+  z-index: 10;
+  overflow: hidden;
+  div {
+    //border: 1px solid red;
+    //padding: 5%;
+    margin-right: 25%;
+  }
+  @include bigMenu();
+  #logo {
+    font-size: 2rem;
+  }
+  nav > ul {
+    margin: 50% 0 50% 0;
+    list-style: none;
+    font-size: 2.2rem;
+    li {
+      margin-top: 10%;
+    }
+    a {
+      color: rgb(83, 83, 83);
+    }
+    a:hover {
+      color: rgb(190, 64, 190);
+    }
+  }
+  .social1 {
+    width: 100%;
+    font-size: 1.2rem;
+    i {
+      margin-right: 0.6rem;
+    }
+  }
+}
+
+#close {
+  @include bothCenter();
+  opacity: 0;
+  z-index: 20;
+  position: absolute;
+  top: 50%;
+  right: -20%;
+  cursor: pointer;
+  i {
+    margin-right: 0.5rem;
+  }
+}
+
+.secTwo {
+  position: relative;
+  background: rgb(255, 0, 0);
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 100%;
+  //@include image();
+  img {
+    width: 80%;
+    transition: 0.5s;
+  }
+}
+.mainContent {
+  @include bothCenter();
+  //flex-direction: column;
+  z-index: 200;
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  overflow: hidden;
+  background: rgb(247, 189, 247);
+  transition: 0.5s;
+  transform: translateY(100%);
+}
+.mainContentToggle {
+  transform: translateY(0%);
+}
+#wrapMainContent {
+  position: relative;
+  width: 70%;
+  height: 100%;
+  //border: 1px solid red;
+  @include wrapMainContent();
+  h1 {
+    text-align: center;
+    margin-bottom: 3%;
+  }
+  p {
+    text-align: center;
+    margin-bottom: 3%;
+  }
+  .border {
+    border: 1px solid $main-border-color;
+    width: 100%;
+    height: 10%;
+    margin-bottom: 5%;
+  }
+  #sizeBtn {
+    height: auto;
+    border: none;
+  }
+  ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1%;
+    button {
+      border: 1px solid $size-btn-border-color;
+      cursor: pointer;
+      color: $size-btn-color;
+      font-size: 1.5rem;
+      width: 100%;
+      line-height: 2rem;
+      margin-bottom: 5%;
+      transition: 0.4s;
+    }
+    button:hover {
+      background: $size-btn-hover-color;
+      color: $size-btn-hover-font-color;
+    }
+  }
+}
+#mainName {
+  @include bothCenter();
+  font-size: 2rem;
+  border-bottom: 1px solid rgb(185, 185, 185);
+  margin-bottom: 5%;
+  padding-bottom: 5%;
+}
+#quantityNo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div {
+    background: $up-down-btn-color;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    @include bothCenter();
+    cursor: pointer;
+  }
+  i {
+    color: $i-font-color;
+    font-size: 2rem;
+    //width: 10%;
+    //border: 1px solid red;
+  }
+}
+#priceCenter {
+  @include bothCenter();
+  font-size: 1.5rem;
+}
+
+#addToBag {
+  background: $add-to-bag-color;
+  font-size: 1.2rem;
+  color: $add-to-bag-font-color;
+  height: 10%;
+  border: 1px solid $main-border-color;
+  margin-top: 5%;
+}
+
+.squareItems {
+  //position: absolute;
+  background: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 40% 40% 20%;
+}
+
+#price {
+  @include bothCenter();
+  justify-content: space-between;
+  position: absolute;
+  transition: 0.5s;
+  transform: translateY(-100%);
+  width: 100%;
+  z-index: 130;
+  //border: 1px solid red;
+  opacity: 0;
+
+  color: rgb(107, 102, 102);
+  cursor: pointer;
+  i {
+    font-size: 1.5rem;
+    transition: 0.5s;
+    color: rgb(18, 18, 19);
+    margin: 0% 5% 0 0;
+    //opacity: 0.5;
+    //border: 1px solid red;
+  }
+  i:hover {
+    color: rgb(189, 53, 53);
+    //font-size: 1.7rem;
+    opacity: 1;
+  }
+  p {
+    font-size: 1.2rem;
+    font-weight: 10;
+    color: rgb(255, 255, 254);
+    //margin: 5% 0 0 5%;
+    border-radius: 0 0 1rem 0;
+    background: rgb(230, 65, 65);
+    padding: 3%;
+    //opacity: 0.5;
+  }
+  //border: 1px solid blue;
+}
+#shoeName {
+  position: absolute;
+  //border: 1px solid crimson;
+  transition: 0.5s;
+  opacity: 0;
+  width: 100%;
+  height: 15%;
+  top: 85%;
+  text-align: center;
+  //left: 10%;
+  h3 {
+    color: rgb(107, 105, 105);
+  }
+}
+.item {
+  position: relative;
+  //background: rgb(248, 186, 248);
+  //border: 1px solid navy;
+  //z-index: 100;
+}
+.beforeImg {
+  // border: 1px solid red;
+  @include bothCenter();
+  //stransform: translate(10%);
+  // z-index: 102;
+  transition: 0.5s;
+  width: 100%;
+  height: 100%;
+  img {
+    // position: relative;
+    opacity: 1;
+    // margin: 0 auto;
+  }
+}
+.aniItem {
+  animation-name: ani;
+  animation-duration: 0.5s;
+}
+@keyframes ani {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+.numbers {
+  @include bothCenter();
+  p {
+    font-weight: bold;
+    font-size: 2.5rem;
+  }
+  color: rgb(156, 154, 154);
+  i {
+    font-size: 2rem;
+    //color: rgb(187, 187, 187);
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  i:hover {
+    color: rgb(161, 161, 161);
+  }
+  #prev {
+    margin-right: 10%;
+  }
+  #next {
+    margin-left: 10%;
+  }
+}
+.opaToggle {
+  animation-name: op;
+  animation-duration: 0.5s;
+}
+@keyframes op {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pop {
+  @include bothCenter();
+  color: rgb(253, 252, 252);
+  //border: 1px solid orange;
+  h2 {
+    margin-left: 1rem;
+    cursor: pointer;
+    padding-bottom: 5%;
+    transition: 0.5s;
+    margin-top: 5%;
+  }
+  h2:hover {
+    color: rgb(194, 70, 194);
+    border-bottom: 3px solid rgb(194, 70, 194);
+  }
+}
+.sidebar {
+  position: relative;
+  background: rgb(255, 255, 255);
+  @include bothCenter();
+  cursor: pointer;
+  i {
+    font-size: 1.5rem;
+    color: grey;
+  }
+}
+
+.shoppingCart {
+  position: absolute;
+  z-index: 1000;
+  width: 90%;
+  height: 100%;
+  transition: 0.5s;
+  transform: translateY(-100%);
+  background: rgb(212, 82, 82);
+}
+.cartToggle {
+  transform: translateY(0%);
+}
+
+#bag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //border: 1px solid red;
+}
+#cls {
+  opacity: 0;
+  transition: 0.5s;
+}
+#open {
+  transition: 0.5s;
+}

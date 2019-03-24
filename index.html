@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="secOne">
+          <div class="mainPic">
+            <div id="arrow">
+              <p>BUY</p>
+              <i class="fas fa-arrow-circle-up"></i>
+            </div>
+            <img id="coverPic" src="shoes/4.png" />
+          </div>
+          <div class="menu">
+            <div class="big-menu">
+              <div id="close"><i class="fas fa-times"></i>Close</div>
+              <div>
+                <a id="logo" href="#"><i class="fas fa-shoe-prints"></i></a>
+                <nav>
+                  <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Sneakers</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Stores</a></li>
+                    <li><a href="contacts/contacts.html">Contacts</a></li>
+                  </ul>
+                </nav>
+                <div class="social1">
+                  <a href="#"><i class="fab fa-facebook"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-google"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="short-menu">
+              <a id="logo" href="#"><i class="fas fa-shoe-prints"></i></a>
+              <div id="bars">
+                <i onclick="menuFn()" class="fas fa-bars"></i>
+              </div>
+              <div class="social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="secTwo">
+          <div class="mainContent">
+            <div id="wrapMainContent">
+              <div id="mainName">
+                <p></p>
+              </div>
+              <p>SIZE</p>
+              <div class="border" id="sizeBtn">
+                <ul>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </ul>
+              </div>
+              <p>QUANTITY</p>
+              <div class="border">
+                <div id="quantityNo">
+                  <div><i class="fas fa-angle-down"></i></div>
+                  <h3>1</h3>
+                  <div><i class="fas fa-angle-up"></i></div>
+                </div>
+              </div>
+              <p>PRICE</p>
+              <div class="border" id="priceCenter">
+                <p></p>
+              </div>
+              <button id="addToBag">ADD TO BAG</button>
+            </div>
+          </div>
+          <div class="shoppingCart"></div>
+          <div class="squareItems">
+            <div class="item" id="item1">
+              <div id="price">
+                <p>$<span id="pp"></span></p>
+                <i class="fas fa-cart-plus"></i>
+              </div>
+              <div id="shoeName"><h3></h3></div>
+              <div class="beforeImg"><img /></div>
+            </div>
+            <div class="item" id="item2">
+              <div id="price">
+                <p>$<span id="pp"></span></p>
+                <i class="fas fa-cart-plus"></i>
+              </div>
+              <div id="shoeName"><h3></h3></div>
+              <div class="beforeImg"><img /></div>
+            </div>
+            <div class="item" id="item3">
+              <div id="price">
+                <p>$<span id="pp"></span></p>
+                <i class="fas fa-cart-plus"></i>
+              </div>
+              <div id="shoeName"><h3></h3></div>
+              <div class="beforeImg"><img /></div>
+            </div>
+            <div class="item" id="item4">
+              <div id="price">
+                <p>$<span id="pp"></span></p>
+                <i class="fas fa-cart-plus"></i>
+              </div>
+              <div id="shoeName"><h3></h3></div>
+              <div class="beforeImg"><img /></div>
+            </div>
+            <div class="numbers">
+              <i id="prev" class="fas fa-long-arrow-alt-left"></i>
+              <p>
+                <sup><span id="inc"></span></sup>&nbsp/&nbsp<sub>3</sub>
+              </p>
+              <i id="next" class="fas fa-long-arrow-alt-right"></i>
+            </div>
+            <div class="pop">
+              <h2>New</h2>
+              <h2>Popular</h2>
+            </div>
+          </div>
+          <div class="sidebar">
+            <div id="bag">
+              <div id="open" onclick="showBag()">
+                <i class="fas fa-shopping-bag "></i>
+              </div>
+              <div id="cls" onclick="hideBag()">
+                <i class="fas fa-times"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

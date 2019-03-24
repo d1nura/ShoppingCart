@@ -1,0 +1,101 @@
+$main-border-color: rgb(170, 170, 170);
+
+$size-btn-border-color: rgb(165, 165, 165);
+$size-btn-color: rgb(70, 70, 70);
+$size-btn-hover-color: rgb(255, 61, 61);
+$size-btn-hover-font-color: white;
+
+$up-down-btn-color: rgb(216, 216, 216);
+$i-font-color: rgb(255, 255, 255);
+
+$add-to-bag-color: rgb(255, 255, 255);
+$add-to-bag-font-color: rgb(0, 0, 0);
+@mixin bothCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin wrapper {
+  @media only screen and (max-width: 426px) {
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+    width: 100%;
+    height: 100%;
+  }
+}
+@mixin wrapMainContent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@mixin shortMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  @media only screen and (max-width: 426px) {
+    i {
+      margin-top: 0;
+      font-size: 1rem;
+    }
+  }
+}
+
+@mixin bigMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media only screen and (max-width: 426px) {
+    //border: 1px solid red;
+    //height: ;
+    i {
+      margin-top: 0.1rem;
+    }
+  }
+}
+
+@mixin image {
+  img {
+    width: 90%;
+    transform: rotate(50deg);
+  }
+}
+
+@mixin bacgroundColors {
+  .mainPic
+  /*.mainContent*/ {
+    background: rgb(255, 255, 255);
+  }
+  .mainContent {
+    background: rgb(255, 255, 255);
+  }
+
+  #item1 {
+    background: rgb(247, 252, 171);
+  }
+  #item2 {
+    background: rgb(171, 255, 182);
+  }
+  #item3 {
+    background: rgb(253, 208, 171);
+  }
+  #item4 {
+    background: rgb(171, 240, 252);
+  }
+  .numbers {
+    background: rgb(235, 231, 231);
+  }
+  .pop {
+    //background: rgb(82, 81, 81);
+    background: rgb(211, 210, 210);
+  }
+}
