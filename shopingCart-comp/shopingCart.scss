@@ -1,0 +1,47 @@
+.sidebar {
+  float: right;
+  position: absolute;
+  z-index: 101;
+  width: 5%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  i {
+    font-size: 1.5rem;
+    color: grey;
+  }
+}
+
+.shoppingCart {
+  position: absolute;
+  z-index: 100;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transition: 0.5s;
+  transform: translateY(-100%);
+  background: rgb(212, 82, 82);
+}
+.cartToggle {
+  transform: translateY(0%);
+}
+
+#bag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //border: 1px solid red;
+}
+#cls {
+  opacity: 0;
+  transition: 0.5s;
+}
+#open {
+  transition: 0.5s;
+}
