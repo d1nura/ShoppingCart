@@ -65,12 +65,18 @@ next.onclick = e => {
     shoeName[i].firstElementChild.innerText = obj[n].name[i];
   }
 };
-
+let shpCrt = document.querySelectorAll("#shpCrt");
+//console.log(shpCrt);
 /*let price = document.createElement("div");
 price.setAttribute("id", "price");
 price.innerHTML = '<i class="fas fa-shopping-cart "></i>';*/
 
 for (let i = 0; i < 4; i++) {
+  //let shpCrt = xc.children[1];
+  shpCrt[i].onclick = () => {
+    console.log("shpCrt");
+  };
+
   item[i].onmouseover = e => {
     //console.log(4456);
     beforeImg[i].firstChild.style.transform = "translateY(-5%)";
@@ -95,13 +101,18 @@ let coverPic = document.querySelector("#coverPic");
 let mainPic = document.querySelector(".mainPic");
 let arrow = document.querySelector("#arrow");
 
+let secPrice = document.querySelector("#secPrice");
+
 for (let i = 0; i < 4; i++) {
   item[i].addEventListener("click", addMainPic);
 }
 let itemPrice, itemName;
 function addMainPic(e) {
+  console.log("err");
   let it = e.target.closest(".item");
+  secPrice.innerText = it.children[0].innerText;
   itemPrice = it.children[0].innerText;
+  //////secPrice
   itemName = it.children[1].innerText;
   coverPic.src = e.target.closest(".beforeImg").firstChild.src;
   // coverPic.style.transform = "rotate(50deg)";

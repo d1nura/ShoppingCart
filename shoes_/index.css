@@ -386,7 +386,7 @@
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
   width: 100%;
-  z-index: 130;
+  z-index: 500;
   opacity: 0;
   color: #6b6666;
   cursor: pointer;

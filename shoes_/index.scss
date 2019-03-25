@@ -207,6 +207,7 @@ $fCol1: rgb(73, 73, 73);
   height: 10%;
   border: 1px solid $main-border-color;
   margin-top: 5%;
+  // z-index: 400;
 }
 #addToBag:active {
   background: rgb(255, 112, 112);
@@ -227,7 +228,7 @@ $fCol1: rgb(73, 73, 73);
   transition: 0.5s;
   transform: translateY(-100%);
   width: 100%;
-  z-index: 130;
+  z-index: 500;
   //border: 1px solid red;
   opacity: 0;
 
@@ -238,6 +239,7 @@ $fCol1: rgb(73, 73, 73);
     transition: 0.5s;
     color: rgb(18, 18, 19);
     margin: 0% 5% 0 0;
+
     //opacity: 0.5;
     //border: 1px solid red;
   }

@@ -96,7 +96,7 @@
   button {
     width: 95%;
     height: 80%;
-    background: rgb(0, 31, 209);
+    background: rgb(32, 196, 81);
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -105,7 +105,7 @@
     font-size: 1.5rem;
   }
   button:active {
-    background: rgb(153, 153, 212);
+    background: rgb(224, 99, 67);
   }
 }
 
@@ -116,17 +116,45 @@
   height: 80%;
   background: rgb(255, 253, 253);
 }
-
 #newEl {
-  width: 90%;
+  width: 100%;
   height: 6rem;
+  display: flex;
+  //padding-left: 2%;
+  //grid-template-columns: 5% 95%;
+  //grid-template-rows: 100%;
+}
+.cross {
+  width: 10%;
+  // border: 1px solid red;
+  position: relative;
+  font-size: 1.5rem;
+  color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgb(233, 233, 233);
+  border-right: 1px solid rgb(233, 233, 233);
+  p {
+    margin-left: 5%;
+    cursor: pointer;
+    // border: 1px solid rgb(201, 201, 201);
+    padding: 5%;
+    border-radius: 0.2rem;
+  }
+}
+
+.below {
+  width: 90%;
   display: grid;
   grid-template-columns: 35% 65%;
   grid-template-rows: 100%;
   background: white;
-  padding: 0% 5% 0 5%;
+
+  //border: 1px solid red;
   border-bottom: 1px solid rgb(233, 233, 233);
   #p1 {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,6 +169,7 @@
     color: rgb(184, 184, 184);
   }
   #p2 {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -163,6 +192,7 @@
       border: 1px solid rgb(112, 112, 248);
       border-radius: 0.2rem;
       padding: 2%;
+      margin-right: 5%;
     }
   }
   #v2 {
@@ -195,4 +225,7 @@
       background: rgb(190, 190, 190);
     }
   }
+}
+#newVl {
+  display: none;
 }

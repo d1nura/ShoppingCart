@@ -32,50 +32,6 @@ class ShopingCart extends HTMLElement {
       let secrtVal = document.querySelector("#secretVal").innerHTML;
       let img1 = document.querySelector("#coverPic");
       let itmPrice = document.querySelector("#priceTag").innerText;
-      //console.log("-----" + name, qNo, secrtVal, itmPrice, img1);
-
-      let doc = document.createElement("div1");
-      doc.setAttribute("id", "newEl");
-      doc.innerHTML = `
-        <div id="p1">
-          <img src="${img1.src}" />
-        </div>
-        <div id="p2">
-          <div id="v1">
-            <h4>${name}</h4>
-            <p>${(secrtVal = secrtVal != "" ? secrtVal : 10)}</p>
-          </div> 
-          <div id="v2">
-            <p id="reqP"><b>${itmPrice}</b></p> 
-            <div id="inc">
-              <div id="home">
-                <button id="minus">-</button>
-                <p id="itemNo">${qNo}</p>
-                <button id="plus">+</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-      //console.log(img1.src);
-      this.shpI.appendChild(doc);
-      this.itmNO = this.shadowRoot.querySelector("#itemNo");
-      this.req = this.shadowRoot.querySelectorAll("#reqP");
-      let ss = [];
-      for (let i = 0; i < this.shpI.children.length; i++) {
-        ss.push(parseFloat(dol(this.req[i].innerText)));
-      }
-      console.log(
-        "ss---" +
-          ss.reduce((p, n) => {
-            return p + n;
-          })
-      );
-      this.total.innerText = `$ ${parseFloat(
-        ss.reduce((p, n) => {
-          return p + n;
-        })
-      )}`;
 
       function dol(x) {
         let arr = x.split("");
@@ -83,6 +39,74 @@ class ShopingCart extends HTMLElement {
         let arr1 = o.join("");
         return arr1;
       }
+      let itmP = (parseFloat(dol(itmPrice)) / parseInt(qNo)).toFixed(2);
+      //console.log(parseFloat(itmPrice1).toFixed(2));
+      let newArr = [];
+
+      if (newArr.length > 1) {
+        newArr.shift();
+      }
+      newArr.push(itmP);
+      let newVal = newArr[0];
+      console.log(newVal);
+      //console.log("-----" + name, qNo, secrtVal, itmPrice, img1);
+
+      let doc = document.createElement("div1");
+      doc.setAttribute("id", "newEl");
+      doc.innerHTML = `
+        <div class="cross">
+          <p><b>X</b></p>
+        </div>
+        <div class="below">
+          <div id="p1">
+            <img src="${img1.src}" />
+          </div>
+          <div id="p2">
+            <div id="v1">
+              <h4>${name}</h4>
+              <p>${(secrtVal = secrtVal != "" ? secrtVal : 10)}</p>
+            </div> 
+            <div id="v2">
+              <p id="reqP"><b>${itmPrice}</b>
+              <div id="newVl">${newVal}</div></p> 
+              <div id="inc">
+                <div id="home">
+                  <button id="minus">-</button>
+                  <p id="itemNo">${qNo}</p>
+                  <button id="plus">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      console.log(doc);
+
+      this.shpI.appendChild(doc);
+      this.cross = this.shadowRoot.querySelectorAll(".cross");
+
+      this.itmNO = this.shadowRoot.querySelector("#itemNo");
+      this.req = this.shadowRoot.querySelectorAll("#reqP");
+      let ss = [];
+      for (let i = 0; i < this.shpI.children.length; i++) {
+        ss.push(parseFloat(dol(this.req[i].innerText)));
+        this.cross[i].onclick = e => {
+          console.log(e.target.closest("#newEl"));
+          this.shpI.removeChild(e.target.closest("#newEl"));
+          let money = e.target.closest("#newEl").querySelector("#reqP")
+            .innerText;
+          this.total.innerText = `$ ${(
+            parseFloat(dol(this.total.innerText)) - parseFloat(dol(money))
+          ).toFixed(2)}`;
+        };
+      }
+
+      this.total.innerText = `$ ${parseFloat(
+        ss.reduce((p, n) => {
+          return p + n;
+        })
+      ).toFixed(2)}`;
 
       for (let i = 0; i < this.shpI.children.length; i++) {
         //console.log(this.itmNO);
@@ -91,16 +115,24 @@ class ShopingCart extends HTMLElement {
           //console.log(e.target.closest("#home"));
           e.target.closest("#home").children[1].innerText++;
           let money = e.target.closest("#v2").children[0].innerText;
+          this.itmPrice1 = e.target
+            .closest("#v2")
+            .querySelector("#newVl").innerHTML;
+          //console.log(this.itmPrice1);
+
           //console.log(money);
           e.target.closest("#v2").children[0].innerHTML = `<b>
-           $ ${(parseFloat(dol(money)) + parseFloat(dol(itemPrice))).toFixed(2)}
+           $ ${(parseFloat(dol(money)) + parseFloat(this.itmPrice1)).toFixed(2)}
           </b>`;
           this.total.innerText = `$ ${(
-            parseFloat(dol(this.total.innerText)) + parseFloat(dol(itemPrice))
+            parseFloat(dol(this.total.innerText)) + parseFloat(this.itmPrice1)
           ).toFixed(2)}`;
         };
         this.min = this.shadowRoot.querySelectorAll("#minus");
         this.min[i].onclick = e => {
+          this.itmPrice1 = e.target
+            .closest("#v2")
+            .querySelector("#newVl").innerHTML;
           // console.log(e.target.closest("#home"));
           if (e.target.closest("#home").children[1].innerText > 1) {
             e.target.closest("#home").children[1].innerText--;
@@ -108,10 +140,10 @@ class ShopingCart extends HTMLElement {
             let money = e.target.closest("#v2").children[0].innerText;
             //console.log(money);
             e.target.closest("#v2").children[0].innerHTML = `<b>
-           $ ${(parseFloat(dol(money)) - parseFloat(dol(itemPrice))).toFixed(2)}
+           $ ${(parseFloat(dol(money)) - parseFloat(this.itmPrice1)).toFixed(2)}
           </b>`;
-            this.total.innerText = `$ ${(
-              parseFloat(dol(this.total.innerText)) - parseFloat(dol(itemPrice))
+            this.total.innerText = `$ ${parseFloat(
+              dol(this.total.innerText) - parseFloat(this.itmPrice1)
             ).toFixed(2)}`;
           }
         };
@@ -120,7 +152,7 @@ class ShopingCart extends HTMLElement {
 
     this.clear.addEventListener("click", () => {
       this.shpI.innerHTML = "";
-      this.total.innerText = 0;
+      this.total.innerText = "$0.00";
     });
 
     this.open.addEventListener("click", () => {
