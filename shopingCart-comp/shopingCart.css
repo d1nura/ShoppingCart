@@ -1,8 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #e4e4e4;
+}
+
 .sidebar {
   float: right;
   position: absolute;
   z-index: 101;
-  width: 5%;
+  width: 10%;
   height: 100%;
   top: 0;
   right: 0;
@@ -26,16 +44,17 @@
 
 .shoppingCart {
   position: absolute;
-  z-index: 100;
-  right: 0;
+  z-index: 1000;
+  right: 10%;
   top: 0;
-  width: 50%;
+  width: 90%;
   height: 100%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  overflow: hidden;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
-  background: #d45252;
+  background: white;
 }
 
 .cartToggle {
@@ -65,5 +84,198 @@
 #open {
   -webkit-transition: 0.5s;
   transition: 0.5s;
+}
+
+#clear:hover {
+  color: red;
+}
+
+.cartName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #eeeeff;
+  padding: 0 5% 0 5%;
+  height: 10%;
+}
+
+.cartName p {
+  color: blue;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.cartName h3 {
+  color: #5c5c5c;
+}
+
+.checOut {
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checOut button {
+  width: 95%;
+  height: 80%;
+  background: #001fd1;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.checOut button:active {
+  background: #9999d4;
+}
+
+#shoppingItems {
+  position: relative;
+  overflow-y: scroll;
+  width: 100%;
+  height: 80%;
+  background: #fffdfd;
+}
+
+#newEl {
+  width: 90%;
+  height: 6rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 35% 65%;
+      grid-template-columns: 35% 65%;
+  -ms-grid-rows: 100%;
+      grid-template-rows: 100%;
+  background: white;
+  padding: 0% 5% 0 5%;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+#newEl #p1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#newEl #p1 img {
+  width: 80%;
+  height: auto;
+}
+
+#newEl h4 {
+  color: #b8b8b8;
+}
+
+#newEl #p2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#newEl #v1,
+#newEl #v2,
+#newEl #inc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#newEl #v1 {
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#newEl #v1 p {
+  border: 1px solid #7070f8;
+  border-radius: 0.2rem;
+  padding: 2%;
+}
+
+#newEl #v2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+#newEl #v2 p {
+  font-size: 1.2rem;
+}
+
+#newEl #inc {
+  width: 50%;
+}
+
+#newEl #inc div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #cccccc;
+  border-radius: 0.5rem;
+}
+
+#newEl #inc button {
+  width: 2rem;
+  height: 2rem;
+  background: white;
+  color: blue;
+  outline: none;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+#newEl #inc button:active {
+  background: #bebebe;
 }
 /*# sourceMappingURL=shopingCart.css.map */

@@ -345,12 +345,16 @@
 }
 
 #addToBag {
-  background: #fc4848;
+  background: #e64141;
   font-size: 1.2rem;
   color: white;
   height: 10%;
   border: 1px solid #aaaaaa;
   margin-top: 5%;
+}
+
+#addToBag:active {
+  background: white;
 }
 
 .squareItems {
@@ -581,46 +585,5 @@
 .sidebar i {
   font-size: 1.5rem;
   color: grey;
-}
-
-.shoppingCart {
-  position: absolute;
-  z-index: 1000;
-  width: 90%;
-  height: 100%;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  background: #d45252;
-}
-
-.cartToggle {
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
-}
-
-#bag {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#cls {
-  opacity: 0;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-#open {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
 }
 /*# sourceMappingURL=index.css.map */

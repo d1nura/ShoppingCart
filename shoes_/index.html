@@ -35,7 +35,7 @@
               </div>
               <p>SIZE</p>
               <div class="border" id="sizeBtn">
-                <ul>
+                <ul id="sizeBtns">
                   <button>6.5</button>
                   <button>7</button>
                   <button>7.5</button>
@@ -47,12 +47,13 @@
                   <button>10.5</button>
                   <button>11</button>
                 </ul>
+                <template id="secretVal"></template>
               </div>
               <p>QUANTITY</p>
               <div class="border">
                 <div id="quantityNo">
                   <div><i class="fas fa-angle-down"></i></div>
-                  <h3>1</h3>
+                  <h3 id="qNo">1</h3>
                   <div><i class="fas fa-angle-up"></i></div>
                 </div>
               </div>
@@ -63,7 +64,7 @@
               <button id="addToBag">ADD TO BAG</button>
             </div>
           </div>
-          <div class="shoppingCart"></div>
+
           <div class="squareItems">
             <div class="item" id="item1">
               <div id="price">
@@ -109,16 +110,8 @@
               <h2>Popular</h2>
             </div>
           </div>
-          <div class="sidebar">
-            <div id="bag">
-              <div id="open" onclick="showBag()">
-                <i class="fas fa-shopping-bag "></i>
-              </div>
-              <div id="cls" onclick="hideBag()">
-                <i class="fas fa-times"></i>
-              </div>
-            </div>
-          </div>
+          <shoping-cart></shoping-cart>
+          <link rel="import" href="/shopingCart-comp/shopingCart.html" />
         </div>
       </div>
     </div>

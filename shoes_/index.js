@@ -1,23 +1,3 @@
-let shoppingCart = document.querySelector(".shoppingCart");
-let open = document.querySelector("#open");
-let cls = document.querySelector("#cls");
-
-function showBag() {
-  shoppingCart.classList.toggle("cartToggle");
-  cls.style.opacity = "1";
-  cls.style.transform = "translateY(-100%)";
-  open.style.opacity = "0";
-  open.style.transform = "translateY(-200%)";
-}
-
-function hideBag() {
-  shoppingCart.classList.toggle("cartToggle");
-  cls.style.opacity = "0";
-  cls.style.transform = "translateY(0%)";
-  open.style.opacity = "1";
-  open.style.transform = "translateY(0%)";
-}
-
 let obj = {
   0: {
     pic: ["4.png", "7.png", "Soccer-2.png", "Soccer-3.png"],
@@ -164,7 +144,29 @@ function showMore() {
 
 let quantity = document.querySelector("#quantityNo");
 let priceTag = document.querySelector("#priceTag");
+let sizeBtns = document.querySelector("#sizeBtns");
+let secVal = document.querySelector("#secretVal");
 let shpNo = 1;
+
+let shoeSize = ["10"];
+for (let i = 0; i < sizeBtns.children.length; i++) {
+  sizeBtns.children[i].addEventListener("click", addSize);
+}
+sizeBtns.children[7].style.background = "black";
+function addSize(e) {
+  let p = e.target.innerText;
+  for (let i = 0; i < sizeBtns.children.length; i++) {
+    sizeBtns.children[i].style.background = "white";
+  }
+  e.target.style.background = "black";
+  shoeSize.push(p);
+  if (shoeSize.length > 1) {
+    shoeSize.shift();
+  }
+
+  secVal.innerHTML = shoeSize[0];
+  //console.log(secVal.innerHTML);
+}
 
 quantity.children[2].addEventListener("click", e => {
   console.log(1);
@@ -202,3 +204,14 @@ function reset() {
   quantity.children[1].innerText = 1;
   shpNo = 1;
 }
+
+let addToBag = document.querySelector("#addToBag");
+
+let itmDetails = [];
+
+/*
+addToBag.addEventListener("click", () => {
+  console.log(789);
+  console.log(quantity.innerText, priceTag.innerText, shoeSize);
+});
+*/
