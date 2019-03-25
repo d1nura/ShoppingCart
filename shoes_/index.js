@@ -2,17 +2,17 @@ let obj = {
   0: {
     pic: ["4.png", "7.png", "Soccer-2.png", "Soccer-3.png"],
     name: ["Name One", "Name Two", "Name Three", "Name Four"],
-    price: [12.99, 15.89, 45.59, 23.75]
+    price: [125.99, 150.89, 145.59, 230.75]
   },
   1: {
     pic: ["1.jpg", "green.png", "gym.png", "Soccer-1.png"],
     name: ["Name Oqq", "Name Tww", "Name Thrr", "Name Fourr"],
-    price: [12.91, 19.89, 25.59, 20.75]
+    price: [155.91, 195.89, 250.59, 200.75]
   },
   2: {
     pic: ["light-b.png", "golf.png", "green.png", "blac-b.png"],
     name: ["Name-One-one", "Name-Two-two", "Name-Three-thrr", "Name-Four-ff2"],
-    price: [13.99, 16.89, 47.55, 24.75]
+    price: [130.99, 169.89, 247.55, 245.75]
   }
 };
 

@@ -22,6 +22,8 @@ class ShopingCart extends HTMLElement {
     this.shpI = this.shadowRoot.querySelector("#shoppingItems");
     this.z = document.querySelector("#mainName").innerText;
     this.clear = this.shadowRoot.querySelector("#clear");
+    this.total = this.shadowRoot.querySelector("#total");
+
     console.log("sss--" + this.shpI);
 
     addBag.addEventListener("click", () => {
@@ -30,7 +32,7 @@ class ShopingCart extends HTMLElement {
       let secrtVal = document.querySelector("#secretVal").innerHTML;
       let img1 = document.querySelector("#coverPic");
       let itmPrice = document.querySelector("#priceTag").innerText;
-      console.log("-----" + name, qNo, secrtVal, itmPrice, img1);
+      //console.log("-----" + name, qNo, secrtVal, itmPrice, img1);
 
       let doc = document.createElement("div1");
       doc.setAttribute("id", "newEl");
@@ -44,23 +46,81 @@ class ShopingCart extends HTMLElement {
             <p>${(secrtVal = secrtVal != "" ? secrtVal : 10)}</p>
           </div> 
           <div id="v2">
-            <p><b>${itmPrice}</b></p> 
+            <p id="reqP"><b>${itmPrice}</b></p> 
             <div id="inc">
-              <div>
-                <button>-</button>
-                <p>${qNo}</p>
-                <button>+</button>
+              <div id="home">
+                <button id="minus">-</button>
+                <p id="itemNo">${qNo}</p>
+                <button id="plus">+</button>
               </div>
             </div>
           </div>
         </div>
       `;
-      console.log(img1.src);
+      //console.log(img1.src);
       this.shpI.appendChild(doc);
+      this.itmNO = this.shadowRoot.querySelector("#itemNo");
+      this.req = this.shadowRoot.querySelectorAll("#reqP");
+      let ss = [];
+      for (let i = 0; i < this.shpI.children.length; i++) {
+        ss.push(parseFloat(dol(this.req[i].innerText)));
+      }
+      console.log(
+        "ss---" +
+          ss.reduce((p, n) => {
+            return p + n;
+          })
+      );
+      this.total.innerText = `$ ${parseFloat(
+        ss.reduce((p, n) => {
+          return p + n;
+        })
+      )}`;
+
+      function dol(x) {
+        let arr = x.split("");
+        let o = arr.filter(i => i != "$");
+        let arr1 = o.join("");
+        return arr1;
+      }
+
+      for (let i = 0; i < this.shpI.children.length; i++) {
+        //console.log(this.itmNO);
+        this.pls = this.shadowRoot.querySelectorAll("#plus");
+        this.pls[i].onclick = e => {
+          //console.log(e.target.closest("#home"));
+          e.target.closest("#home").children[1].innerText++;
+          let money = e.target.closest("#v2").children[0].innerText;
+          //console.log(money);
+          e.target.closest("#v2").children[0].innerHTML = `<b>
+           $ ${(parseFloat(dol(money)) + parseFloat(dol(itemPrice))).toFixed(2)}
+          </b>`;
+          this.total.innerText = `$ ${(
+            parseFloat(dol(this.total.innerText)) + parseFloat(dol(itemPrice))
+          ).toFixed(2)}`;
+        };
+        this.min = this.shadowRoot.querySelectorAll("#minus");
+        this.min[i].onclick = e => {
+          // console.log(e.target.closest("#home"));
+          if (e.target.closest("#home").children[1].innerText > 1) {
+            e.target.closest("#home").children[1].innerText--;
+
+            let money = e.target.closest("#v2").children[0].innerText;
+            //console.log(money);
+            e.target.closest("#v2").children[0].innerHTML = `<b>
+           $ ${(parseFloat(dol(money)) - parseFloat(dol(itemPrice))).toFixed(2)}
+          </b>`;
+            this.total.innerText = `$ ${(
+              parseFloat(dol(this.total.innerText)) - parseFloat(dol(itemPrice))
+            ).toFixed(2)}`;
+          }
+        };
+      }
     });
 
     this.clear.addEventListener("click", () => {
       this.shpI.innerHTML = "";
+      this.total.innerText = 0;
     });
 
     this.open.addEventListener("click", () => {
@@ -70,7 +130,6 @@ class ShopingCart extends HTMLElement {
       this.open.style.opacity = "0";
       this.open.style.transform = "translateY(-200%)";
       //console.log(xx);
-      console.log(this.z);
     });
 
     this.cls.addEventListener("click", () => {

@@ -230,6 +230,8 @@
 }
 
 #newEl #v1 p {
+  width: 2rem;
+  text-align: center;
   border: 1px solid #7070f8;
   border-radius: 0.2rem;
   padding: 2%;
