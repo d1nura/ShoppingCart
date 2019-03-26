@@ -1,14 +1,15 @@
-$main-border-color: rgb(170, 170, 170);
+$main-border-color: rgb(255, 217, 0);
+$main-name-border-color: $main-border-color;
 
-$size-btn-border-color: rgb(165, 165, 165);
-$size-btn-color: rgb(70, 70, 70);
-$size-btn-hover-color: rgb(110, 242, 247);
-$size-btn-hover-font-color: white;
+$size-btn-border-color: $main-border-color;
+$size-btn-color: rgb(180, 180, 180);
+$size-btn-hover-color: rgb(208, 255, 55);
+$size-btn-hover-font-color: rgb(107, 107, 107);
 
-$up-down-btn-color: rgb(81, 255, 133);
+$up-down-btn-color: rgb(255, 217, 0);
 $i-font-color: rgb(255, 255, 255);
 
-$add-to-bag-color: rgb(230, 65, 65);
+$add-to-bag-color: rgb(233, 85, 27);
 $add-to-bag-font-color: rgb(255, 255, 255);
 @mixin bothCenter {
   display: flex;
@@ -86,10 +87,10 @@ $add-to-bag-font-color: rgb(255, 255, 255);
     background: rgb(171, 255, 182);
   }
   #item3 {
-    background: rgb(253, 208, 171);
+    background: rgb(171, 253, 246);
   }
   #item4 {
-    background: rgb(171, 240, 252);
+    background: rgb(220, 171, 252);
   }
   .numbers {
     background: rgb(235, 231, 231);

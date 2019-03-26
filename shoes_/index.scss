@@ -115,6 +115,7 @@ $fCol1: rgb(73, 73, 73);
   background: rgb(247, 189, 247);
   transition: 0.5s;
   transform: translateY(100%);
+  border-left: 1px solid rgb(255, 239, 239);
 }
 .mainContentToggle {
   transform: translateY(0%);
@@ -123,7 +124,7 @@ $fCol1: rgb(73, 73, 73);
   position: relative;
   width: 70%;
   height: 100%;
-  //border: 1px solid red;
+
   @include wrapMainContent();
   h1 {
     text-align: center;
@@ -170,7 +171,7 @@ $fCol1: rgb(73, 73, 73);
 #mainName {
   @include bothCenter();
   font-size: 2rem;
-  border-bottom: 1px solid rgb(185, 185, 185);
+  border-bottom: 1px solid $main-name-border-color;
   margin-bottom: 5%;
   padding-bottom: 5%;
 }
@@ -197,7 +198,14 @@ $fCol1: rgb(73, 73, 73);
 }
 #priceCenter {
   @include bothCenter();
+  margin: 0;
+  padding: 0;
+  background: rgb(255, 255, 255);
   font-size: 1.5rem;
+  #priceTag {
+    // background: mediumturquoise;
+    margin-top: 3%;
+  }
 }
 
 #addToBag {
@@ -228,7 +236,7 @@ $fCol1: rgb(73, 73, 73);
   transition: 0.5s;
   transform: translateY(-100%);
   width: 100%;
-  z-index: 500;
+  // z-index: 500;
   //border: 1px solid red;
   opacity: 0;
 
@@ -247,6 +255,9 @@ $fCol1: rgb(73, 73, 73);
     color: rgb(189, 53, 53);
     //font-size: 1.7rem;
     opacity: 1;
+  }
+  i:active {
+    color: rgb(255, 224, 224);
   }
   p {
     font-size: 1.2rem;

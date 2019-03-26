@@ -66,15 +66,52 @@ next.onclick = e => {
   }
 };
 let shpCrt = document.querySelectorAll("#shpCrt");
+let wrapMainContent = document.querySelector("#wrapMainContent");
+let mainContent = document.querySelector(".mainContent");
 //console.log(shpCrt);
 /*let price = document.createElement("div");
 price.setAttribute("id", "price");
 price.innerHTML = '<i class="fas fa-shopping-cart "></i>';*/
+//arrow.addEventListener("click", showMore); //arrow function toggle
+
+function showMore() {
+  arrow.children[1].classList.toggle("arrowRotateToggle");
+  arrow.children[0].classList.toggle("arrowTextToggle");
+  mainContent.classList.toggle("mainContentToggle");
+
+  //wrapMainContent.children[0].innerText = itemName;
+  //wrapMainContent.children[6].querySelector("#priceTag").innerText = itemPrice;
+
+  reset();
+}
 
 for (let i = 0; i < 4; i++) {
   //let shpCrt = xc.children[1];
-  shpCrt[i].onclick = () => {
+  shpCrt[i].onclick = e => {
     console.log("shpCrt");
+    let itm = e.target.closest(".item");
+    wrapMainContent.children[0].innerText = itm.querySelector(
+      "#shoeName"
+    ).innerText;
+    // console.log(e.target.closest(".item").querySelector("#shoeName").innerText);
+    wrapMainContent.children[6].querySelector(
+      "#priceTag"
+    ).innerText = itm.querySelector("#price").children[0].innerText;
+    coverPic.src = itm.querySelector("img").src;
+    mainContent.style.transform = "translate(0)";
+    arrow.children[1].style.transform = "rotate(180deg)";
+    //////---------
+
+    //arrow.children[1].classList.toggle("arrowRotateToggle");
+    //arrow.children[0].classList.toggle("arrowTextToggle");
+
+    arrow.addEventListener("click", () => {
+      mainContent.style.transform = "translateY(100%)";
+      arrow.children[1].style.transform = "rotate(0deg)";
+      //arrow.children[1].classList.toggle("arrowRotateToggle");
+      // arrow.children[0].classList.toggle("arrowTextToggle");
+      reset();
+    }); //arrow function toggle
   };
 
   item[i].onmouseover = e => {
@@ -108,13 +145,15 @@ for (let i = 0; i < 4; i++) {
 }
 let itemPrice, itemName;
 function addMainPic(e) {
-  console.log("err");
+  //console.log("err");
   let it = e.target.closest(".item");
   secPrice.innerText = it.children[0].innerText;
   itemPrice = it.children[0].innerText;
   //////secPrice
   itemName = it.children[1].innerText;
-  coverPic.src = e.target.closest(".beforeImg").firstChild.src;
+  if (e.target.closest(".beforeImg")) {
+    coverPic.src = e.target.closest(".beforeImg").querySelector("img").src;
+  }
   // coverPic.style.transform = "rotate(50deg)";
   arrow.style.opacity = "1";
   arrow.style.transform = "translateX(0)";
@@ -135,21 +174,6 @@ arrow.onmouseout = () => {
   u.transform = "translateY(50%)";
   u.opacity = 0;
 };
-let wrapMainContent = document.querySelector("#wrapMainContent");
-let mainContent = document.querySelector(".mainContent");
-
-arrow.addEventListener("click", showMore); //arrow function toggle
-
-function showMore() {
-  arrow.children[1].classList.toggle("arrowRotateToggle");
-  arrow.children[0].classList.toggle("arrowTextToggle");
-  mainContent.classList.toggle("mainContentToggle");
-
-  wrapMainContent.children[0].innerText = itemName;
-  wrapMainContent.children[6].querySelector("#priceTag").innerText = itemPrice;
-
-  reset();
-}
 
 //setting the items counter.================================
 
@@ -163,13 +187,16 @@ let shoeSize = ["10"];
 for (let i = 0; i < sizeBtns.children.length; i++) {
   sizeBtns.children[i].addEventListener("click", addSize);
 }
-sizeBtns.children[7].style.background = "black";
+sizeBtns.children[7].style.background = "rgb(208, 255, 55)";
+sizeBtns.children[7].style.color = "gray";
 function addSize(e) {
   let p = e.target.innerText;
   for (let i = 0; i < sizeBtns.children.length; i++) {
     sizeBtns.children[i].style.background = "white";
+    sizeBtns.children[i].style.color = "rgb(180, 180, 180)";
   }
-  e.target.style.background = "black";
+  e.target.style.background = "rgb(208, 255, 55)";
+  e.target.style.color = "gray";
   shoeSize.push(p);
   if (shoeSize.length > 1) {
     shoeSize.shift();

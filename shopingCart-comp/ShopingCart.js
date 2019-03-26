@@ -23,8 +23,16 @@ class ShopingCart extends HTMLElement {
     this.z = document.querySelector("#mainName").innerText;
     this.clear = this.shadowRoot.querySelector("#clear");
     this.total = this.shadowRoot.querySelector("#total");
+    this.sidebar = this.shadowRoot.querySelector(".sidebar");
 
-    console.log("sss--" + this.shpI);
+    //console.log("sss--" + this.shpI);
+    let score = document.createElement("div");
+    score.setAttribute("class", "score");
+    this.sidebar.appendChild(score);
+    score.innerHTML = 0;
+    if (score.innerHTML == 0) {
+      score.style.opacity = 0;
+    }
 
     addBag.addEventListener("click", () => {
       let name = document.querySelector("#mainName").innerText;
@@ -39,6 +47,7 @@ class ShopingCart extends HTMLElement {
         let arr1 = o.join("");
         return arr1;
       }
+
       let itmP = (parseFloat(dol(itmPrice)) / parseInt(qNo)).toFixed(2);
       //console.log(parseFloat(itmPrice1).toFixed(2));
       let newArr = [];
@@ -99,7 +108,23 @@ class ShopingCart extends HTMLElement {
           this.total.innerText = `$ ${(
             parseFloat(dol(this.total.innerText)) - parseFloat(dol(money))
           ).toFixed(2)}`;
+          console.log(score.innerText);
+          score.innerText =
+            parseInt(score.innerText) -
+            parseInt(
+              e.target.closest("#newEl").querySelector("#itemNo").innerText
+            );
+          if (score.innerText == 0) {
+            score.style.opacity = 0;
+          }
         };
+      }
+      //if (typeof name != undefined && typeof itemPrice != undefined) {
+      score.innerHTML = parseInt(qNo) + parseInt(score.innerHTML);
+      //}
+
+      if (score.innerHTML != 0) {
+        score.style.opacity = 1;
       }
 
       this.total.innerText = `$ ${parseFloat(
@@ -112,14 +137,14 @@ class ShopingCart extends HTMLElement {
         //console.log(this.itmNO);
         this.pls = this.shadowRoot.querySelectorAll("#plus");
         this.pls[i].onclick = e => {
-          //console.log(e.target.closest("#home"));
+          console.log(score);
           e.target.closest("#home").children[1].innerText++;
           let money = e.target.closest("#v2").children[0].innerText;
           this.itmPrice1 = e.target
             .closest("#v2")
             .querySelector("#newVl").innerHTML;
           //console.log(this.itmPrice1);
-
+          score.innerText = parseInt(score.innerText) + 1;
           //console.log(money);
           e.target.closest("#v2").children[0].innerHTML = `<b>
            $ ${(parseFloat(dol(money)) + parseFloat(this.itmPrice1)).toFixed(2)}
@@ -137,6 +162,8 @@ class ShopingCart extends HTMLElement {
           if (e.target.closest("#home").children[1].innerText > 1) {
             e.target.closest("#home").children[1].innerText--;
 
+            score.innerText = parseInt(score.innerText) - 1;
+
             let money = e.target.closest("#v2").children[0].innerText;
             //console.log(money);
             e.target.closest("#v2").children[0].innerHTML = `<b>
@@ -150,7 +177,7 @@ class ShopingCart extends HTMLElement {
       }
     });
 
-    this.clear.addEventListener("click", () => {
+    this.clear.addEventListener("click", e => {
       this.shpI.innerHTML = "";
       this.total.innerText = "$0.00";
     });
