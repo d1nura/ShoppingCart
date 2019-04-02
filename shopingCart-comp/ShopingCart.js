@@ -20,7 +20,7 @@ class ShopingCart extends HTMLElement {
     this.open = this.shadowRoot.querySelector("#open");
     this.cls = this.shadowRoot.querySelector("#cls");
     this.shpI = this.shadowRoot.querySelector("#shoppingItems");
-    this.z = document.querySelector("#mainName").innerText;
+    //this.z = document.querySelector("#mainName").innerText;
     this.clear = this.shadowRoot.querySelector("#clear");
     this.total = this.shadowRoot.querySelector("#total");
     this.sidebar = this.shadowRoot.querySelector(".sidebar");
@@ -33,7 +33,7 @@ class ShopingCart extends HTMLElement {
     if (score.innerHTML == 0) {
       score.style.opacity = 0;
     }
-
+    // if (addBag) {
     addBag.addEventListener("click", () => {
       let name = document.querySelector("#mainName").innerText;
       let qNo = document.querySelector("#qNo").innerText;
@@ -63,8 +63,8 @@ class ShopingCart extends HTMLElement {
       let doc = document.createElement("div1");
       doc.setAttribute("id", "newEl");
       doc.innerHTML = `
-        <div class="cross">
-          <p><b>X</b></p>
+        <div  class="cross">
+          <p  class="cross1"><b>X</b></p>
         </div>
         <div class="below">
           <div id="p1">
@@ -93,7 +93,7 @@ class ShopingCart extends HTMLElement {
       console.log(doc);
 
       this.shpI.appendChild(doc);
-      this.cross = this.shadowRoot.querySelectorAll(".cross");
+      this.cross = this.shadowRoot.querySelectorAll(".cross1");
 
       this.itmNO = this.shadowRoot.querySelector("#itemNo");
       this.req = this.shadowRoot.querySelectorAll("#reqP");
@@ -176,6 +176,7 @@ class ShopingCart extends HTMLElement {
         };
       }
     });
+    //}
 
     this.clear.addEventListener("click", e => {
       this.shpI.innerHTML = "";
