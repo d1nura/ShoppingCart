@@ -181,6 +181,7 @@ class ShopingCart extends HTMLElement {
     this.clear.addEventListener("click", e => {
       this.shpI.innerHTML = "";
       this.total.innerText = "$0.00";
+      score.innerText = 0;
     });
 
     this.open.addEventListener("click", () => {
